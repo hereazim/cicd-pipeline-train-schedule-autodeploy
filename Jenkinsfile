@@ -20,18 +20,12 @@ pipeline {
     }
 
     stage('Build  Docker Image') {
- when {
-                branch 'master'
-            }
       steps{
         script {
           app = docker.build dockerimagename
         }
       }
      stage('Push Docker Image'){
-   when {
-                branch 'master'
-            }
             steps{
                 script{
                     bat 'docker login -u kaazim -p Azimka@01#'
@@ -40,9 +34,6 @@ pipeline {
             }
         }
   stage('CanaryDeploy') {
-            when {
-                branch 'master'
-            }
             environment { 
                 CANARY_REPLICAS = 1
             }
