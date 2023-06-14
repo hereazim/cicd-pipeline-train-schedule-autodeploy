@@ -28,7 +28,6 @@ pipeline {
           app = docker.build dockerimagename
         }
       }
-    }
      stage('Push Docker Image'){
    when {
                 branch 'master'
@@ -40,7 +39,6 @@ pipeline {
                 }
             }
         }
-    }
   stage('CanaryDeploy') {
             when {
                 branch 'master'
@@ -48,6 +46,7 @@ pipeline {
             environment { 
                 CANARY_REPLICAS = 1
             }
+  }
     stage('Deploying  container to Kubernetes') {
       steps {
         script {
