@@ -35,9 +35,11 @@ pipeline {
             }
         }
   stage('CanaryDeploy') {
+    steps{
             environment { 
                 CANARY_REPLICAS = 1
             }
+    }
   }
     stage('Deploying  container to Kubernetes') {
       steps {
