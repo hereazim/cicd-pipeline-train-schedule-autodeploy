@@ -1,7 +1,7 @@
 pipeline {
   agent any
   environment {
-    dockerimagename = "kaazim/train-schedule"
+    dockerimagename = ""
   }
     stages {
         stage('Build') {
@@ -16,7 +16,7 @@ pipeline {
 
     stage('Checkout Source') {
       steps {
-        git 'https://github.com/hereazim/cicd-pipeline-train-schedule-autodeploy.git'
+        git 'https://github.com//cicd-pipeline-train-schedule-autodeploy.git'
       }
     }
 
@@ -30,8 +30,8 @@ pipeline {
      stage('Push Docker Image'){
             steps{
                 script{
-                    bat 'docker login -u kaazim -p Azimka@01#'
-                    bat 'docker push kaazim/train-schedule'
+                    bat 'docker login -u '
+                    bat 'docker push e'
                 }
             }
         }
